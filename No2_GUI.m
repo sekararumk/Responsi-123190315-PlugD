@@ -107,13 +107,13 @@ end
 for i=1:m
     V(i)= sum(w.*R(i,:));
 end
-B = sort(V, 'descend'); %sorting dari yang terbesar
+rank = sort(V, 'descend'); %sorting dari yang terbesar
 opts2 = detectImportOptions('DATA RUMAH.xlsx');
 opts2.SelectedVariableNames = (2);
 rekomendasi = readmatrix('DATA RUMAH.xlsx', opts2); %membaca file DATA RUMAH.xlsx
 for i=1:20 %mengambil  peringkat 1 sampai 20
     for j=1:m
-        if(B(i) == V(j))
+        if(rank(i) == V(j))
         rekomendasii(i) = rekomendasi(j);
         break;
         end
